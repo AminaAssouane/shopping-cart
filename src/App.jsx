@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Store } from "./components/Store.jsx";
+import { Store } from "./components/Store/Store.jsx";
 
 function App() {
   return <Store />;
