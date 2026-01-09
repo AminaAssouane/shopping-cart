@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: forestgreen;
+}
+
+.title {
+  color: white;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.button {
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: white;
+}
