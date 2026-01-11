@@ -20,6 +20,7 @@
   border: none;
   text-decoration: none;
   color: inherit;
+  background-color: lightgray;
 }
 
 .button:hover {

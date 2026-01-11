@@ -1,0 +1,17 @@
+.product {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: lightgray;
+  border-radius: 20px;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  border: 1px solid green;
+}
+
+.product img {
+  width: 50%; /* scale width relative to container */
+  height: auto; /* keeps the aspect ratio */
+  object-fit: contain; /* ensures the entire image fits */
+}
