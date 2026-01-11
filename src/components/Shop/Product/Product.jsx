@@ -7,6 +7,7 @@ export function Product({ title, imageUrl, price }) {
         <img src={imageUrl} alt={title} />
         <div>{title}</div>
         <div>{price}</div>
+        <button>Add to cart</button>
       </div>
     </>
   );

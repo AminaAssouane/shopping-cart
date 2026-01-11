@@ -1,3 +1,3 @@
 export function Cart() {
-  return <div>This is Cart</div>;
+  return <div>Your cart</div>;
 }
