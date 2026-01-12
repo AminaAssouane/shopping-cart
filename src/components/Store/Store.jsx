@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Shop } from "../Shop/Shop";
 import { Cart } from "../Cart/Cart";
+import { useLocation } from "react-router";
 
 export function Store() {
   const [products, setProducts] = useState([]);
@@ -30,12 +31,18 @@ export function Store() {
   }, []);
 
   function addToCart(product) {
-    setCartProducts(cartProducts.push(product));
+    setCartProducts([...cartProducts, product]);
   }
+
+  const location = useLocation();
 
   return (
     <>
-      <Shop products={products} />
+      {location.pathname === "/Shop" && (
+        <Shop products={products} onClick={addToCart} />
+      )}
+
+      {location.pathname === "/Cart" && <Cart cartProducts={cartProducts} />}
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { Product } from "./Product/Product";
 import styles from "./Shop.module.css";
 
-export function Shop({ products }) {
+export function Shop({ products, onClick }) {
   return (
     <>
       <div className={styles.layout}>
@@ -11,6 +11,7 @@ export function Shop({ products }) {
             imageUrl={product.imageUrl}
             title={product.title}
             price={product.price}
+            onClick={() => onClick(product)}
           />
         ))}
       </div>
