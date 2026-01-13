@@ -19,6 +19,7 @@ export function Store() {
       );
       const results = await Promise.all(promises);
       const products = results.map((product) => ({
+        id: product.id,
         title: product.title,
         imageUrl: product.image,
         price: product.price,
