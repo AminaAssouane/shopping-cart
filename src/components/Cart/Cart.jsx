@@ -1,7 +1,7 @@
 import { CartProduct } from "./CartProduct/CartProduct";
 import styles from "./Cart.module.css";
 
-export function Cart({ cartProducts = [] }) {
+export function Cart({ cartProducts = [], onClick }) {
   return (
     <>
       <div>Your cart</div>
@@ -12,6 +12,7 @@ export function Cart({ cartProducts = [] }) {
             title={cartProduct.title}
             imageUrl={cartProduct.imageUrl}
             price={cartProduct.price}
+            onClick={() => onClick(cartProduct.id)}
           />
         ))}
       </div>

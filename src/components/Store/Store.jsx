@@ -34,6 +34,11 @@ export function Store() {
     setCartProducts([...cartProducts, product]);
   }
 
+  function deleteFromCart(id) {
+    const newCartProducts = cartProducts.filter((product) => product.id !== id);
+    setCartProducts(newCartProducts);
+  }
+
   const location = useLocation();
 
   return (
@@ -42,7 +47,9 @@ export function Store() {
         <Shop products={products} onClick={addToCart} />
       )}
 
-      {location.pathname === "/Cart" && <Cart cartProducts={cartProducts} />}
+      {location.pathname === "/Cart" && (
+        <Cart cartProducts={cartProducts} onClick={deleteFromCart} />
+      )}
     </>
   );
 }
