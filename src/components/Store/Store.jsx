@@ -40,6 +40,22 @@ export function Store() {
     setCartProducts(newCartProducts);
   }
 
+  function onDecrease(id) {
+    setCartProducts(
+      cartProducts.map((p) =>
+        p.id === id && p.quantity > 1 ? { ...p, quantity: p.quantity - 1 } : p,
+      ),
+    );
+  }
+
+  function onIncrease(id) {
+    setCartProducts(
+      cartProducts.map((p) =>
+        p.id === id ? { ...p, quantity: p.quantity + 1 } : p,
+      ),
+    );
+  }
+
   const location = useLocation();
 
   return (
@@ -49,7 +65,12 @@ export function Store() {
       )}
 
       {location.pathname === "/Cart" && (
-        <Cart cartProducts={cartProducts} onClick={deleteFromCart} />
+        <Cart
+          cartProducts={cartProducts}
+          onClick={deleteFromCart}
+          onIncrease={onIncrease}
+          onDecrease={onDecrease}
+        />
       )}
     </>
   );

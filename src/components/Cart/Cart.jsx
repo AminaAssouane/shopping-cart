@@ -1,6 +1,6 @@
 import { CartProduct } from "./CartProduct/CartProduct";
 
-export function Cart({ cartProducts = [], onClick }) {
+export function Cart({ cartProducts = [], onClick, onDecrease, onIncrease }) {
   return (
     <>
       <div>Your cart</div>
@@ -20,6 +20,8 @@ export function Cart({ cartProducts = [], onClick }) {
             price={cartProduct.price}
             quantity={cartProduct.quantity}
             onClick={() => onClick(cartProduct.id)}
+            onDecrease={() => onDecrease(cartProduct.id)}
+            onIncrease={() => onIncrease(cartProduct.id)}
           />
         ))}
       </div>
