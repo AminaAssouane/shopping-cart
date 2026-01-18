@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Shop } from "../Shop/Shop";
 import { Cart } from "../Cart/Cart";
-import { useLocation } from "react-router";
+import { useLocation, useOutletContext } from "react-router";
 
 export function Store() {
   const [products, setProducts] = useState([]);
-  const [cartProducts, setCartProducts] = useState([]);
+  const { cartProducts, setCartProducts } = useOutletContext();
 
   useEffect(() => {
     async function fetchProducts() {

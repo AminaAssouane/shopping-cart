@@ -1,5 +1,4 @@
 import { CartProduct } from "./CartProduct/CartProduct";
-import styles from "./Cart.module.css";
 
 export function Cart({ cartProducts = [], onClick }) {
   return (

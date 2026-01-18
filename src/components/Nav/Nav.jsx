@@ -1,7 +1,7 @@
 import styles from "./Nav.module.css";
 import { Link } from "react-router";
 
-export function Nav() {
+export function Nav({ quantity }) {
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>Amina's Store</h1>
@@ -13,7 +13,7 @@ export function Nav() {
           Shop
         </Link>
         <Link to="Cart" className={styles.button}>
-          Cart
+          Cart {quantity}
         </Link>
       </nav>
     </header>
