@@ -11,7 +11,7 @@ export function Shop({ products, onClick }) {
             imageUrl={product.imageUrl}
             title={product.title}
             price={product.price}
-            onClick={() => onClick(product)}
+            onClick={(quantity) => onClick(product, quantity)}
           />
         ))}
       </div>

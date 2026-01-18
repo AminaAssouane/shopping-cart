@@ -14,8 +14,8 @@ export function Store() {
       ];
       const promises = ids.map((id) =>
         fetch(`https://fakestoreapi.com/products/${id}`).then((response) =>
-          response.json()
-        )
+          response.json(),
+        ),
       );
       const results = await Promise.all(promises);
       const products = results.map((product) => ({
@@ -31,8 +31,8 @@ export function Store() {
     fetchProducts();
   }, []);
 
-  function addToCart(product) {
-    setCartProducts([...cartProducts, product]);
+  function addToCart(product, quantity) {
+    setCartProducts([...cartProducts, { ...product, quantity }]);
   }
 
   function deleteFromCart(id) {
