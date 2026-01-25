@@ -31,9 +31,20 @@ export function Store() {
     fetchProducts();
   }, []);
 
-  function addToCart(product, quantity) {
-    setCartProducts([...cartProducts, { ...product, quantity }]);
+  function addToCart(product, quantity, id) {
+  const existingProduct = cartProducts.find(item => item.id === id);
+
+  if (existingProduct) {
+    const updatedCart = cartProducts.map(item =>
+      item.id === id
+        ? { ...item, quantity: item.quantity + quantity }
+        : item
+    );
+    setCartProducts(updatedCart);
+  } else {
+    setCartProducts([...cartProducts, { ...product, id, quantity }]);
   }
+}
 
   function deleteFromCart(id) {
     const newCartProducts = cartProducts.filter((product) => product.id !== id);
