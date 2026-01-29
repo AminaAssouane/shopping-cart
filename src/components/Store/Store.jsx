@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Shop } from "../Shop/Shop";
 import { Cart } from "../Cart/Cart";
 import { useLocation, useOutletContext } from "react-router";
+import { addToCartLogic, deleteFromCartLogic } from "../../tests/cartUtils.js";
 
 export function Store() {
   const [products, setProducts] = useState([]);
@@ -31,25 +32,14 @@ export function Store() {
     fetchProducts();
   }, []);
 
-  function addToCart(product, quantity, id) {
-  const existingProduct = cartProducts.find(item => item.id === id);
-
-  if (existingProduct) {
-    const updatedCart = cartProducts.map(item =>
-      item.id === id
-        ? { ...item, quantity: item.quantity + quantity }
-        : item
-    );
-    setCartProducts(updatedCart);
-  } else {
-    setCartProducts([...cartProducts, { ...product, id, quantity }]);
-  }
+  
+function addToCart(product, quantity, id) {
+  setCartProducts(addToCartLogic(cartProducts, product, quantity, id));
 }
 
-  function deleteFromCart(id) {
-    const newCartProducts = cartProducts.filter((product) => product.id !== id);
-    setCartProducts(newCartProducts);
-  }
+function deleteFromCart(id) {
+  setCartProducts(deleteFromCartLogic(cartProducts, id));
+}
 
   function onDecrease(id) {
     setCartProducts(
